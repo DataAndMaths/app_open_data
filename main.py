@@ -24,7 +24,7 @@ from plotly.subplots import make_subplots
 import plotly.figure_factory as ff
 ## fixer le theme
 import plotly.io as pio
-pio.templates.default = 'ggplot2'
+pio.templates.default = 'simple_white'
 
 
 ##############################################################################
@@ -95,7 +95,7 @@ def page2():
                         mapbox_style='carto-positron' 
                        )
 
-    fig.update_layout(
+    fig.update_layout(title_text='Carte des distinctions',
         hoverlabel=dict(
         bgcolor="white",
         font_size=12,
@@ -104,7 +104,21 @@ def page2():
         )   
     st.write(fig)
 
-
+    #################################
+    
+    fig  = px.histogram(dataset, x='distinction', 
+                        color_discrete_sequence=px.colors.qualitative.Bold,
+                        color='distinction'
+                        )
+    fig.update_layout(title_text='Effectifs des distinctions')
+    
+    st.write(fig)
+    
+    #################################
+    
+    st.markdown("""
+                [Lien : Données et Description](https://www.data.gouv.fr/fr/datasets/label-ville-amie-des-animaux/) 
+                """)
              
 #########################################################
 if __name__=="__main__":
