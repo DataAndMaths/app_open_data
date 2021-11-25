@@ -64,12 +64,12 @@ def main():
 #==============================   Page 1  ===================================#
 #===============================  Accueil  ==================================#
 def page1():
-    st.title('Données gouvernementales')
+    st.title('App Open Data')
     st.write("##")
     st.write("""
              Bienvenue !
              
-             Petite application pour la réutilisation de données gouvernementales, et plus généralement d'open data. 
+             Application qui présente quelques réutilisations de données open data.
              
              
              """)
@@ -91,8 +91,9 @@ def page2():
                                     "longitude" : False},
                         color="distinction",
                         color_discrete_sequence=px.colors.qualitative.Bold,
-                        #, zoom=3, height=30)
-                        mapbox_style='carto-positron' 
+                        #zoom=3, 
+                        height=600, width=900,
+                        mapbox_style='carto-positron'
                        )
 
     fig.update_layout(
